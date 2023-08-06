@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera Test</title>
+</head>
+<body>
+    <video id="video" autoplay></video>
+    <script>
+        const initializeCamera = async () => {
+            const video = document.querySelector("#video");
+
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                alert("Seu navegador não suporta a API navigator.mediaDevices.getUserMedia.");
+                return;
+            }
+
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+            } catch (e) {
+                alert("Sem acesso à câmera ou usuário negou a permissão.");
+            }
+        };
+
+        initializeCamera();
+    </script>
+</body>
+</html>
