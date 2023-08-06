@@ -9,16 +9,32 @@
 </head>
 
 <body>
+    <!DOCTYPE html>
+<html>
+
+<head>
     <script>
         function mudarcor() {
-            const elemento = document.geElementById("elementomudarcor");
-            elemento.style = "red";// Altere a cor aqui
+            const elemento = document.getElementById("elementomudarcor");
+            elemento.style.color = "red"; // Alterar a cor para vermelho
         }
+
         function mudarcor2() {
-            const elemento2 = document.getElementById("elemtomudarcor")
-            elemento2.style.backgroundColor
+            const elemento2 = document.getElementById("elemtomudarcor");
+            elemento2.style.backgroundColor = "blue"; // Alterar a cor de fundo para azul
         }
     </script>
+</head>
+
+<body>
+    <p id="elementomudarcor">Este é um parágrafo cuja cor pode ser alterada.</p>
+    <div id="elemtomudarcor" style="width: 200px; height: 100px; background-color: yellow;"></div>
+    <button onclick="mudarcor()">Mudar Cor do Parágrafo</button>
+    <button onclick="mudarcor2()">Mudar Cor de Fundo</button>
+</body>
+
+</html>
+
 </body>
 
 </html>
