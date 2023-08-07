@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostar O cultar </title>
+
+    <!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <p>clique no botao para ocultar a informaçao</p>
+    <button id="toggleButton">mostrar/esconder</button>
+    <p id="informaçaoOculta" style="display: none;">Esta e a informaçao que sera oculta</p>
+
+    <script>
+        function MostrarOcultar() {
+            const conteudo = document.getElementById("informaçaoOculta");
+
+            if (conteudo.style.display === "none") {
+                conteudo.style.display = "block";
+            } else {
+                conteudo.style.display = "none";
+            }
+        }
+        
+        var toggleButton = document.getElementById("toggleButton");
+        toggleButton.addEventListener("click", MostrarOcultar); // Correção: usar o nome correto da função
+        
+    </script>
+</body>
+
+</html>
+
+</head>
+
+<body>
+
+
+</body>
+
+</html>
