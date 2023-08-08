@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Highlight Example</title>
+    <style>
+        .destaque {
+            background-color: blue;
+            color: aqua;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <button id="botao">Clique aqui</button>
+
+    <script>
+        const botao = document.getElementById("botao");
+        botao.addEventListener("click", function () {
+            botao.classList.toggle("destaque");
+        });
+    </script>
+</body>
+</html>
