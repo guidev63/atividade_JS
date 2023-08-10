@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Validação</title>
-    <h1>Formulário de Validação</h1>
+    <title>Formulário</title>
 </head>
 <body>
     <form id="myForm" onsubmit="return validarFormulario()">
@@ -22,33 +21,25 @@
         <br>
         <button type="submit">Enviar</button>
     </form>
-    <p id="mensagemerro" style="color: red;"></p>
-    <p id="mensagemsucesso" style="color: goldenrod;"></p>
+    <p id="mensagem" style="color: black;"></p>
     <script>
         function validarFormulario() {
             const nome = document.getElementById("nome").value;
             const email = document.getElementById("email").value;
             const senha = document.getElementById("senha").value;
 
-            if (nome === "") {
-                alert("Por favor, informe seu nome.");
+            const mensagem = document.getElementById("mensagem");
+
+            if (nome === "" || email === "" || senha === "") {
+                mensagem.style.color = "red";
+                mensagem.textContent = "Erro: Todos os campos são obrigatórios.";
                 return false;
             }
 
-            if (email === "") {
-                alert("Por favor, informe seu email.");
-                return false;
-            }
-
-            if (senha === "") {
-                alert("Por favor, informe sua senha.");
-                return false;
-            }
-
-            alert("Formulário enviado com sucesso!");
+            mensagem.style.color = "green";
+            mensagem.textContent = "Sucesso: Formulário enviado com sucesso!";
             return true;
         }
     </script>
-   
 </body>
 </html>
