@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
 </head>
+
 <body>
-    <form id="myForm" onsubmit="return validarFormulario()">
+    <button id="myForm" onsubmit="return validarFormulario()">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
         <br>
@@ -19,9 +21,10 @@
         <input type="password" id="senha" name="senha" required>
         <br>
         <br>
-        <button type="submit">Enviar</button>
-    </form>
-    <p id="mensagem" style="color: black;"></p>
+        <button type="button" onclick="validarFormulario()">enviar</button>
+
+    </button>
+    <p id="mensagem" style="color:blue;"></p>
     <script>
         function validarFormulario() {
             const nome = document.getElementById("nome").value;
@@ -30,16 +33,35 @@
 
             const mensagem = document.getElementById("mensagem");
 
-            if (nome === "" || email === "" || senha === "") {
+            if (!nome === "" & !email === "" & !senha === "") {
                 mensagem.style.color = "red";
                 mensagem.textContent = "Erro: Todos os campos são obrigatórios.";
                 return false;
             }
 
-            mensagem.style.color = "green";
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!email.match(emailRegex)) {
+                mensagem.style.color = "red";
+                mensagem.textContent = "Erro: email inválido.";
+                return false;
+
+            }
+            if (nome.length < 3) {
+                mensagem.style.color = "red";
+                mensagem.textContent = "Erro nome inválido.";
+                return false;
+            }
+
+            if (senha.length < 6) {
+                mensagem.style.color = "red";
+                mensagem.textContent = "Erro: senha inválida (minimo de 6 caracteres).";
+                return false;
+            }
+            mensagem.style.color = "black";
             mensagem.textContent = "Sucesso: Formulário enviado com sucesso!";
             return true;
         }
     </script>
 </body>
+
 </html>
