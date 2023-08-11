@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tarefas</title>
+    <style>
+        ul {
+            list-style-type: decimal;
+        }
+        
+        .remover-button {
+            background-color:  blue;
+            color: white;
+        }
+
+        .adicionar-button {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+    <script>
+        function adicionarTarefa() {
+            const tarefaInput = document.getElementById("tarefaInput");
+            const tarefa = tarefaInput.value.trim(); 
+
+            if (tarefa) {
+                const lista = document.getElementById("listaTarefas");
+                const novaTarefa = document.createElement("li");
+                novaTarefa.textContent = tarefa;
+
+                const removerBotao = document.createElement("button");
+                removerBotao.textContent = "Remover";
+                removerBotao.className = "remover-button"; 
+                removerBotao.onclick = function() {
+                    lista.removeChild(novaTarefa);
+                };
+
+                novaTarefa.appendChild(removerBotao);
+
+                lista.appendChild(novaTarefa);
+
+                tarefaInput.value = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <input type="text" id="tarefaInput" placeholder="Digite a tarefa">
+    <button class="adicionar-button" onclick="adicionarTarefa()">Adicionar Tarefa</button>
+    <ul id="listaTarefas">
+    </ul>
+</body>
+</html>
